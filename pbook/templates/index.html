@@ -7,6 +7,62 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>포켓걸즈</h1>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포켓몬도감</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        img {
+            width: 45px;
+        }
+        th {
+            text-align: center;
+            white-space: nowrap;
+        }
+        td.center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>PocketGo</h1>
+    </div>
+
+    <div class="container mt-5">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">이름</th>
+            <th scope="col">특징</th>
+            <th scope="col">분류</th>
+            <th scope="col">무게</th>
+            <th scope="col">키</th>
+            <!-- <th scope="col">속성</th> -->
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in pockets %}
+            <tr>
+                <td class="center"><a href="{{i.img_url}}"><img src="{{i.img_url}}"></a></td><!-- style="width:40px; heigh:40px"></td> -->
+                <td>{{i.name}}</td>
+                <td>{{ i.character }}</td>
+                <td>{{ i.classify }}</td>
+                <td>{{ i.weight }}</td>
+                <td>{{ i.height }}</td>
+                <!-- <td>{{ i.type1 }}</td>
+                <td>{{ i.type2 }}</td> -->
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    
+    </div>
+</body>
+</html>
 </body>
 </html>

@@ -4,9 +4,17 @@ from django.db import models
 class Pocket(models.Model):
     img_url = models.URLField()
     name = models.TextField(max_length=10)
-    type = models.TextField(max_length=10)
+    #type1 = models.TextField(max_length=10,null=True)
+    #type2 = models.TextField(max_length=10,null=True)
+    #link = models.CharField(max_length=200, primary_key=True)
     height = models.CharField(max_length=10)
     weight = models.CharField(max_length=10)
     classify = models.TextField(max_length=10)
     character = models.TextField(max_length=50) # 긴글
-    detail = models.TextField(max_length=50) # 물음표
+    
+    class Meta:
+        verbose_name_plural = "포켓몬"
+        ordering = ('-name',)
+    def __str__(self):
+        return f"{self.name} -- {self.height} -- {self.weight} -- {self.classify} -- {self.character}"
+    
