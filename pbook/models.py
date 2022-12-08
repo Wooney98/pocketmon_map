@@ -6,7 +6,7 @@ class Pocket(models.Model):
     name = models.TextField(max_length=10)
     #type1 = models.TextField(max_length=10,null=True)
     #type2 = models.TextField(max_length=10,null=True)
-    #link = models.CharField(max_length=200, primary_key=True)
+    link = models.CharField(max_length=200)
     height = models.CharField(max_length=10)
     weight = models.CharField(max_length=10)
     classify = models.TextField(max_length=10)
@@ -14,7 +14,7 @@ class Pocket(models.Model):
     
     class Meta:
         verbose_name_plural = "포켓몬"
-        ordering = ('-name',)
+        ordering = ('name',)
     def __str__(self):
         return f"{self.name} -- {self.height} -- {self.weight} -- {self.classify} -- {self.character}"
     
