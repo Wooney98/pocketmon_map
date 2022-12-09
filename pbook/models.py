@@ -4,8 +4,6 @@ from django.db import models
 class Pocket(models.Model):
     img_url = models.URLField()
     name = models.TextField(max_length=10)
-    #type1 = models.TextField(max_length=10,null=True)
-    #type2 = models.TextField(max_length=10,null=True)
     link = models.CharField(max_length=200)
     height = models.CharField(max_length=10)
     weight = models.CharField(max_length=10)
