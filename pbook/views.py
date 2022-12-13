@@ -10,5 +10,5 @@ from django.views.generic import ListView
 class index(ListView):
     model = Pocket
     template_name = 'pocket_list.html'
-    paginate_by = 68 # pagination 기능, page 당 3개
+    paginate_by = 64 # pagination 기능, page 당 3개
     ordering = 'name'
