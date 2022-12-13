@@ -20,7 +20,5 @@ DB테이블 구상
 - 검색기능
 - db 차트화
 - DB가 1109개임. 현재 컨테이너는 4배수임. 즉, 1개가 이렇게 삐쭉 나옴. 이부분을 해결해야할듯.
-![](blob:https://velog.io/1aeff62c-c17e-421a-81f3-af2bfb44029d)
-![](blob:https://velog.io/fba6e997-8c59-43b0-a624-7d7597ef3897)
-
-
+![](https://velog.velcdn.com/images/swson777/post/d85f798a-84bf-4d97-8c48-b220ac0d2041/image.png)
+![](https://velog.velcdn.com/images/swson777/post/4687fc09-8d48-426c-b34e-0e151895dbbb/image.png)
