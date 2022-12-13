@@ -1,3 +1,7 @@
+SECRET_KEY = 'django-insecure-jj&nki(ljijh#2%2t0)8i^$r)gktcw%z^c0h8x1tq3b+ed_9o&'
+DEBUG = True
+ALLOWED_HOSTS = []
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # mysql 엔진 설정

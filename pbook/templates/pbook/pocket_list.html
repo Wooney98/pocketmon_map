@@ -1,0 +1,100 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block list %}
+<style>
+    body {
+        background-color: #D9E5FF;
+    }
+</style>
+
+
+
+<div style="text-align: center;">
+    <div style="text-align : center;">
+        <img src="{% static 'assets/img/2.png' %}" alt="..." /><h1>포켓몬 리스트</h1>
+    </div>
+</div>
+
+<!-- Section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            {% for i in pocket_list %}
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="{{i.img_url}}" />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{i.name}}</h5>
+                            <!-- Product price-->
+                            {{ i.character }}
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{i.link}}">{{ i.classify }}</a></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <!-- Paginations -->
+            {% if is_paginated %}
+            <nav aria-label="Pagination">
+                <hr class="my-0" />
+                <ul class="pagination justify-content-center my-4">
+                    <!-- 이전페이지로 돌아가기 -->
+                    {% if page_obj.has_previous %}
+                    <!-- 이전 페이지 객체가 있으면 [prev] 버튼 활성화 -->
+                    <li class="page-item">
+                        <a class="page-link"
+                            href="{% url 'pbook:pocket_list' %}?page={{ page_obj.previous_page_number }}"
+                            tabindex="-1">Prev</a>
+                    </li>
+                    {% else %}
+                    <!-- 이전페이지 객체가 없으면 [prev] 버튼 비활성화 -->
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Prev</a>
+                    </li>
+                    {% endif %}
+
+                    <!-- 페이지를 번호로 출력하기 -->
+                    {% for page in page_obj.paginator.page_range %}
+                    <!-- 현재 선택한 페이지 번호는 비활성화 -->
+                    {% if page_obj.number == forloop.counter %}
+                    <li class="page-item disabled" aria-current="page">
+                        <a class="page-link" style="background-color: #7eacf6;"
+                            href="{% url 'pbook:pocket_list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>
+                    </li>
+                    {% else %}
+                    <!-- 현재 선택한 페이지 번호는 활성화 시킴 -->
+                    <li class="page-item" aria-current="page">
+                        <a class="page-link" href="{% url 'pbook:pocket_list' %}?page={{ forloop.counter }}">{{forloop.counter}}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    <!-- 다음 페이지로 가기 -->
+                    {% if page_obj.has_next %}
+                    <!-- 이전페이지 객체가 있으면 [Next]버튼 활성화 -->
+                    <li class="page-item">
+                        <a class="page-link"
+                            href="{% url 'pbook:pocket_list' %}?page={{ page_obj.next_page_number }}">Next</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% endif %}
+
+        </div>
+    </div>
+</section>
+{% endblock list %}
+
