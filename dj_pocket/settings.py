@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import token_info
+import env_info
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = token_info.SECRET_KEY
+SECRET_KEY = env_info.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = token_info.DEBUG
+DEBUG = env_info.DEBUG
 
-ALLOWED_HOSTS = token_info.ALLOWED_HOSTS
+ALLOWED_HOSTS = env_info.ALLOWED_HOSTS
 
 
 # Application definition
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'dj_pocket.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = token_info.DATABASES
+DATABASES = env_info.DATABASES
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

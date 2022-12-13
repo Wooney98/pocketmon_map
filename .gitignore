@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 # add user
-token_info.py
+env_info.py
 migrations/
